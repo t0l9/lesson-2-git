@@ -14,8 +14,19 @@ public class SearchTests {
     }
 
     @Test
+    void successfulSearchTestYandex() {
+        open("https://yandex.kz/");
+        $("#text").setValue("selenide").pressEnter();
+        $(".main__center").shouldHave(text("selenide"));
+    }
+
+
+    @Test
     void pageCanBeOpenedTest() {
         open("https://www.google.com/");
         $("html").shouldHave(text("Србија"));
     }
+
+
+
 }
