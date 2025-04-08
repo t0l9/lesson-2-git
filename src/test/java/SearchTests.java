@@ -27,6 +27,26 @@ public class SearchTests {
         $("html").shouldHave(text("Србија"));
     }
 
+    @Test
+    void bccAuto(){
+        open("https://business-test.bcc.kz/");
+        $("#phoneNumber").setValue("").pressEnter();
+        $("#userPass1").setValue("").pressEnter();
+        $(".ant-input").setValue("00000").pressEnter();
+        $(".account-config-btn").shouldHave(text("Счета и карты"));
+
+        $("#0.3_MENU_div").click();
+        $("#root > section > section > main > div > div.payment-cells > a:nth-child(1) > div.payment-cells__content").click();
+        $(".page__title").shouldHave(text("Создание платежа по реквизитам"));
+    }
+
+    @Test
+    void goToPayment(){
+        $("#0.3_MENU_div").click();
+        $("#root > section > section > main > div > div.payment-cells > a:nth-child(1) > div.payment-cells__content").click();
+        $(".page__title").shouldHave(text("Создание платежа по реквизитам"));
+    }
+
 
 
 }
